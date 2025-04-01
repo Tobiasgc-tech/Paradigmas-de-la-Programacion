@@ -44,3 +44,13 @@ filterFoldr f xs = foldr (\x r -> if f x then x:r else r) [] xs
 
 mapFoldr:: (a -> b) -> [a] -> [b]
 mapFoldr f xs = foldr (\x r -> f x :r) [] xs
+
+mejorSegun:: (a -> a -> Bool) -> [a] -> a
+mejorSegun f = foldl1 (\x y -> if f x y then x else y)
+
+{-sumasParciales:: Num a => [a] -> [a]
+sumasParciales = foldl (\x acc -> (x + if null acc then 0 else head acc) : acc) []-}
+
+
+
+
